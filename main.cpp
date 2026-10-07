@@ -14,17 +14,27 @@ class Goat {
     string colors[15] = {"White","Black","Brown","Gray","Tan","Cream","Red","Golden","Spotted","Gray-White","Black-White","Brown-White","Dark Brown","Light Brown","Mixed"};
 
     public:
-    Goat
-}
+    Goat() {
+        age = rand() % 20 + 1;
+        name = name[rand() % 15];
+        color = colors[rand() % 15];
+    }
+    Goat(int a, string n, string c){
+        age = a;
+        name = n;
+        color = c;
+    }
+};
+
 using namespace std;
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
 class DoublyLinkedList {
 private:
 struct Node {
-int data;
+Goat data;
 Node* prev;
 Node* next;
-Node(int val, Node* p = nullptr, Node* n = nullptr) {
+Node(Goat val, Node* p = nullptr, Node* n = nullptr) {
 data = val;
 prev = p;
 next = n;
@@ -35,7 +45,7 @@ Node* tail;
 public:
 // constructor
 DoublyLinkedList() { head = nullptr; tail = nullptr; }
-void push_back(int value) {
+void push_back(Goat value) {
 Node* newNode = new Node(value);
 if (!tail) // if there's no tail, the list is empty
 head = tail = newNode;
@@ -45,7 +55,7 @@ newNode->prev = tail;
 tail = newNode;
 }
 }
-void push_front(int value) {
+void push_front(Goat value) {
 Node* newNode = new Node(value);
 if (!head) // if there's no head, the list is empty
 head = tail = newNode;
@@ -55,7 +65,7 @@ head->prev = newNode;
 head = newNode;
 }
 }
-void insert_after(int value, int position) {
+void insert_after(Goat value, int position) {
 if (position < 0) {
 cout << "Position must be >= 0." << endl;
 return;
@@ -81,7 +91,7 @@ else
 tail = newNode; // Inserting at the end
 temp->next = newNode;
 }
-void delete_node(int value) {
+void delete_node(Goat value) {
 if (!head) return; // Empty list
 Node* temp = head;
 while (temp && temp->data != value)
