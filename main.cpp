@@ -3,6 +3,7 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
+using namespace std;
 class Goat {
     private:
     int age;
@@ -16,7 +17,7 @@ class Goat {
     public:
     Goat() {
         age = rand() % 20 + 1;
-        name = name[rand() % 15];
+        name = names[rand() % 15];
         color = colors[rand() % 15];
     }
     Goat(int a, string n, string c){
@@ -24,10 +25,13 @@ class Goat {
         name = n;
         color = c;
     }
+    void print() {
+        cout << age << " " << name << " " << color;
+    }
 };
 
-using namespace std;
-const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
+
+int MIN_LS = 5, MAX_LS = 20;
 class DoublyLinkedList {
 private:
 struct Node {
@@ -113,8 +117,9 @@ void print() {
 Node* current = head;
 if (!current) return;
 while (current) {
-cout << current->data << " ";
-current = current->next;
+    current->data.print();
+    cout << endl;
+    current = current->next;
 }
 cout << endl;
 }
@@ -122,8 +127,9 @@ void print_reverse() {
 Node* current = tail;
 if (!current) return;
 while (current) {
-cout << current->data << " ";
-current = current->prev;
+    current->data.print();
+    cout << endl;
+    current = current->prev;
 }
 cout << endl;
 }
@@ -137,10 +143,12 @@ delete temp;
 };
 // Driver program
 int main() {
+    srand(time(0));
 DoublyLinkedList list;
 int size = rand() % (MAX_LS-MIN_LS+1) + MIN_LS;
 for (int i = 0; i < size; ++i)
-list.push_back(rand() % (MAX_NR-MIN_NR+1) + MIN_NR);
+Goat goat = Goat();
+list.push_back(goat);
 cout << "List forward: ";
 list.print();
 cout << "List backward: ";
