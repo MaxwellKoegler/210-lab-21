@@ -1,5 +1,21 @@
 //Maxwell Koegler | COMSC 210 | lab 21
 #include <iostream>
+#include <string>
+#include <cstdlib>
+#include <ctime>
+class Goat {
+    private:
+    int age;
+    string name;
+    string color;
+
+    string names[15] = {"Billy","Bessie","Daisy","Goober","Gus","Mabel","Clover","Peanut","Waffles","Muffin","Patches","Buddy","Coco","Rocky","Luna"};
+
+    string colors[15] = {"White","Black","Brown","Gray","Tan","Cream","Red","Golden","Spotted","Gray-White","Black-White","Brown-White","Dark Brown","Light Brown","Mixed"};
+
+    public:
+    Goat
+}
 using namespace std;
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
 class DoublyLinkedList {
